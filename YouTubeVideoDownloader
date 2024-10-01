@@ -1,0 +1,30 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class YouTubeVideoDownloader {
+
+    public static void main(String[] args) {
+        String videoUrl = "https://www.youtube.com/watch?v=your_video_id"; // Replace with actual video URL
+        String command = "youtube-dl " + videoUrl;
+
+        try {
+            // Execute the youtube-dl command
+            Process process = Runtime.getRuntime().exec(command);
+
+            // Get the output from the process (if any)
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            
+            // Wait for the process to finish
+            int exitCode = process.waitFor();
+            System.out.println("Process exited with code: " + exitCode);
+
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
