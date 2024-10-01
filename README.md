@@ -1,3 +1,13 @@
+#for java
+#Install youtube-dl:
+
+You need to install youtube-dl on your system. You can download it from the official website.
+Java Code to execute youtube-dl commands:
+
+You can use the Runtime.getRuntime().exec() to run youtube-dl commands from within your Java code.
+
+
+#for py
 # YouTube Video Downloader
 
 This is a simple Python script to download YouTube videos using the `pytube` library.
